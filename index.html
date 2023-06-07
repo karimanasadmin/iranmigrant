@@ -30,25 +30,31 @@
             var family = document.getElementById("family").value;
             var email = document.getElementById("email").value;
 
-            // Prepare CSV data
-            var csvData = "Name,Family,Email,Date\n" + name + "," + family + "," + email + "," + new Date().toLocaleString() + "\n";
+            // Create the request body
+            var requestBody = {
+                name: name,
+                family: family,
+                email: email
+            };
 
-            // Create a Blob object for the CSV data
-            var blob = new Blob([csvData], { type: "text/csv;charset=utf-8;" });
-
-            // Create a download link
-            var downloadLink = document.createElement("a");
-            downloadLink.href = URL.createObjectURL(blob);
-            downloadLink.download = "usersreq.csv";
-
-            // Append the download link to the document
-            document.body.appendChild(downloadLink);
-
-            // Trigger the download
-            downloadLink.click();
-
-            // Clean up the download link
-            document.body.removeChild(downloadLink);
+            // Send a POST request to the server
+            fetch("/save-data", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(function(response) {
+                if (response.ok) {
+                    console.log("Data saved successfully");
+                } else {
+                    console.error("Failed to save data");
+                }
+            })
+            .catch(function(error) {
+                console.error("An error occurred:", error);
+            });
         });
     </script>
 </body>
