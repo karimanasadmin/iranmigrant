@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Destination, Travel
 
+def index(request):
+    pass
+
 def destination_list(request):
     destinations = Destination.objects.all()
     return render(request, 'travelapp/destination_list.html', {'destinations': destinations})

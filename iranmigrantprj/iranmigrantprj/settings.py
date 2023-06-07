@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-cqz%)b0qqwj1@dn8d3z82=^-wdp5ua_@2on=ugk(g@k!ycykj!
 DEBUG = True
 
 ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['iranmigrant.de']
 
 
 # Application definition
@@ -81,8 +82,12 @@ WSGI_APPLICATION = 'iranmigrantprj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'iranmigrantdb',
+        'USER': 'root',
+        'PASSWORD': 'DG8ser',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 

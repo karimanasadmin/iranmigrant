@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Address, House
 
+def index(request):
+    pass
+
 def address_list(request):
     addresses = Address.objects.all()
     return render(request, 'houseapp/address_list.html', {'addresses': addresses})

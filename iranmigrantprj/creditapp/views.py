@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Applicant, Credit
 
+def index(request):
+    pass
+
 def applicant_list(request):
     applicants = Applicant.objects.all()
     return render(request, 'creditapp/applicant_list.html', {'applicants': applicants})
