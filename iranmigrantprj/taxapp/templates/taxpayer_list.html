@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}Taxpayer List{% endblock %}
+
+{% block content %}
+    <h1>Taxpayer List</h1>
+
+    <ul>
+        {% for taxpayer in taxpayers %}
+            <li>{{ taxpayer.taxpayer_name }}</li>
+            <!-- Display additional taxpayer details as needed -->
+        {% empty %}
+            <li>No taxpayers found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

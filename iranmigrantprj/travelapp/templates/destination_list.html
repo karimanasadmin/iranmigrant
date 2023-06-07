@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}Destination List{% endblock %}
+
+{% block content %}
+    <h1>Destination List</h1>
+
+    <ul>
+        {% for destination in destinations %}
+            <li>{{ destination.place_name }}</li>
+            <!-- Display additional destination details as needed -->
+        {% empty %}
+            <li>No destinations found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

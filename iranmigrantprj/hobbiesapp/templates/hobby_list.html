@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}Hobby List{% endblock %}
+
+{% block content %}
+    <h1>Hobby List</h1>
+
+    <ul>
+        {% for hobby in hobbies %}
+            <li>{{ hobby }}</li>
+            <!-- Display additional hobby details as needed -->
+        {% empty %}
+            <li>No hobbies found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

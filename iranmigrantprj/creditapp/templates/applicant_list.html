@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}Applicant List{% endblock %}
+
+{% block content %}
+    <h1>Applicant List</h1>
+
+    <ul>
+        {% for applicant in applicants %}
+            <li>{{ applicant.full_name }}</li>
+            <!-- Display additional applicant details as needed -->
+        {% empty %}
+            <li>No applicants found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

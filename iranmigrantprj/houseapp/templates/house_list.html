@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}House List{% endblock %}
+
+{% block content %}
+    <h1>House List</h1>
+
+    <ul>
+        {% for house in houses %}
+            <li>{{ house }}</li>
+            <!-- Display additional house details as needed -->
+        {% empty %}
+            <li>No houses found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

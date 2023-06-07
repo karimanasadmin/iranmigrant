@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}Service List{% endblock %}
+
+{% block content %}
+    <h1>Service List</h1>
+
+    <ul>
+        {% for service in services %}
+            <li>{{ service.service_name }}</li>
+            <!-- Display additional service details as needed -->
+        {% empty %}
+            <li>No services found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

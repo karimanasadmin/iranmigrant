@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}Appointment List{% endblock %}
+
+{% block content %}
+    <h1>Appointment List</h1>
+
+    <ul>
+        {% for appointment in appointments %}
+            <li>{{ appointment }}</li>
+            <!-- Display additional appointment details as needed -->
+        {% empty %}
+            <li>No appointments found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

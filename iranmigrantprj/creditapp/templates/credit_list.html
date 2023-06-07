@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}Credit List{% endblock %}
+
+{% block content %}
+    <h1>Credit List</h1>
+
+    <ul>
+        {% for credit in credits %}
+            <li>{{ credit }}</li>
+            <!-- Display additional credit details as needed -->
+        {% empty %}
+            <li>No credits found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

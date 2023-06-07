@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}Tax Submission List{% endblock %}
+
+{% block content %}
+    <h1>Tax Submission List</h1>
+
+    <ul>
+        {% for taxsubmission in taxsubmissions %}
+            <li>{{ taxsubmission }}</li>
+            <!-- Display additional tax submission details as needed -->
+        {% empty %}
+            <li>No tax submissions found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

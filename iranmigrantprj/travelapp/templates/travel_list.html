@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}Travel List{% endblock %}
+
+{% block content %}
+    <h1>Travel List</h1>
+
+    <ul>
+        {% for travel in travels %}
+            <li>{{ travel }}</li>
+            <!-- Display additional travel details as needed -->
+        {% empty %}
+            <li>No travels found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
