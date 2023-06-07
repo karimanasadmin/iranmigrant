@@ -4,6 +4,52 @@
     <title>Contact Form</title>
 </head>
 <body>
-   test page !!!
+    <h1>Contact Form</h1>
+    <form id="contactForm">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="family">Family:</label>
+            <input type="text" id="family" name="family" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get form values
+            var name = document.getElementById("name").value;
+            var family = document.getElementById("family").value;
+            var email = document.getElementById("email").value;
+
+            // Prepare CSV data
+            var csvData = "Name,Family,Email,Date\n" + name + "," + family + "," + email + "," + new Date().toLocaleString() + "\n";
+
+            // Create a Blob object for the CSV data
+            var blob = new Blob([csvData], { type: "text/csv;charset=utf-8;" });
+
+            // Create a download link
+            var downloadLink = document.createElement("a");
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = "usersreq.csv";
+
+            // Append the download link to the document
+            document.body.appendChild(downloadLink);
+
+            // Trigger the download
+            downloadLink.click();
+
+            // Clean up the download link
+            document.body.removeChild(downloadLink);
+        });
+    </script>
 </body>
 </html>
